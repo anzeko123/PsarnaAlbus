@@ -1,3 +1,3 @@
 
-[Contribution guidelines for this project](Register/Register.png)
+[Contribution guidelines for this project](Register/Register.png?raw=true)
 
