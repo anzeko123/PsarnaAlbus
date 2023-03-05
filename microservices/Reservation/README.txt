@@ -1,4 +1,4 @@
-![DogReservation_Architecture](Reservation/RezervacijaPsov.png?raw=true)
+![DogReservation_Architecture](/Reservation/RezervacijaPsov.png?raw=true)
 
 # Zahteve
 
