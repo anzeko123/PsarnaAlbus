@@ -1,3 +1,3 @@
 
-![Register_Zahteve](Register.png)
+![Register_Zahteve](Register/Register.png)
 
