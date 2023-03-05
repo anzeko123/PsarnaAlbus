@@ -1,3 +1,3 @@
 
-![Register_Zahteve](Register/Register.png)
+[Contribution guidelines for this project](Register/Register.png)
 
