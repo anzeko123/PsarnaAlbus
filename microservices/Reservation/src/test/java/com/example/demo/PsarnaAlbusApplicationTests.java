@@ -1,9 +1,9 @@
 package com.example.demo;
 
-import com.example.demo.pes.Pes;
-import com.example.demo.pes.PesController;
-import com.example.demo.pes.PesRepository;
-import com.example.demo.pes.PesService;
+//import com.example.demo.pes.Pes;
+//import com.example.demo.pes.PesController;
+//import com.example.demo.pes.PesRepository;
+//import com.example.demo.pes.PesService;
 import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.jupiter.api.Test;
