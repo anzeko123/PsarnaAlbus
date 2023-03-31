@@ -23,7 +23,7 @@ const register = async (req, res) => {
   if(checkEmail != null) {
     //res.redirect('./?e=' + encodeURIComponent('Ta e-pošta je že v uporabi'));
     console.log("Ta e-pošta je že v uporabi")
-    res.json({'error': 'Ta e-pošta je že v uporabi'})
+    res.status(500).json({'error': 'Ta e-pošta je že v uporabi'})
     logger.info(`500 || Ta e-pošta je že v uporabi`);
   } else {
     if(req.body.password != req.body.repPassword) {
@@ -44,7 +44,7 @@ const register = async (req, res) => {
         );
         // save user token
         user.token = token;
-        res.json({"success": user, 'token': token})
+        res.status(200).json({"success": user, 'token': token})
         logger.info(`200 || Uspešna registracija`);
         //res.redirect('../login');
       } catch (e) {

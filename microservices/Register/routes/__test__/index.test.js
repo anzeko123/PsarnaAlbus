@@ -14,7 +14,6 @@ beforeAll(done => {
     done()
   })
 describe('Login', () =>{
-    jest.mock('../index');
 
     it('User successfully logged in', async()=>{
         const res = await request(app).post('/login/post').send({username: 'anze', password: '123'});
@@ -22,40 +21,21 @@ describe('Login', () =>{
         expect(res.statusCode).toEqual(200);
     });
     it('Error loging in', async()=>{
-        const res = await request(app).post('/login/post').send({username: ''});
+        const res = await request(app).post('/login/post').send({username: 'heh'});
 
         expect(res.statusCode).toEqual(500);
     });
 
 });
-/*
-describe('Insert Car', () =>{
-    jest.mock('../car');
-    it('Missing data when submiting car form', async()=>{
-        const rescar = await request(app).post('/car').send({name: ''});
-        expect(rescar.statusCode).toEqual(400);
+
+describe('User register', () =>{
+
+    it('Is user registred', async()=>{
+        const rescar = await request(app).post('/register/post').send({username: 'anze123', email: 'anze123.kozole@gmail.com', password: '123', repPassword: '123'});
+        expect(rescar.statusCode).toEqual(200);
     });
-    it('User successfully inserted their car', async()=>{
-        const res = await request(app).post('/car').send({name: 'janez', car_name: 'BMW', year: '2005'});
-        console.log(res)
-        expect(res.statusCode).toEqual(200);
-    });
-});
-describe('Insert Sevice date', () =>{
-    jest.mock('../car');
-    it('Missing data when submiting service date form', async()=>{
-        const rescar = await request(app).post('/calendar').send({name: ''});
-        expect(rescar.statusCode).toEqual(400);
-    });
-    it('User successfully inserted their date of service', async()=>{
-        const res = await request(app).post('/calendar').send({date: '15.12.2022', name: 'janez', surname: 'novak', car: 'Audi'});
-        console.log(res)
-        expect(res.statusCode).toEqual(200);
+    it('Is email already taken', async()=>{
+        const res = await request(app).post('/register/post').send({email: 'anze.kozole@gmail.com'});
+        expect(res.statusCode).toEqual(500);
     });
 });
-afterAll(done => {
-    // Closing the DB connection allows Jest to exit successfully.
-    db.close()
-    done()
-  })
-  */

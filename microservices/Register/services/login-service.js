@@ -45,7 +45,7 @@ const login = async (req, res) => {
             logger.info(`500 || Prišlo je do napake med prijavo`);
         }
     } else {
-        res.json({"error": "Prijava ni uspela"})
+        res.status(500).json({"error": "Prijava ni uspela"})
         logger.info(`500 || Prijava ni uspela`);
     }
 
