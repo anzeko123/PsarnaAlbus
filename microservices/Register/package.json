@@ -4,7 +4,7 @@
   "description": "[Contribution guidelines for this project](Register/Register.png?raw=true)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "nodemon app.js",
     "test:ci": "npm run test -- --testResultsProcessor=\"jest-junit\" --watchAll=false --ci --coverage"
   },
