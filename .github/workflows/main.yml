@@ -1,15 +1,15 @@
 #Workflow name
 name: CI/CD Pipeline
-on:
+on: [push]
   #Manually trigger workflow runs
-  workflow_dispatch:
+  #workflow_dispatch:
   #Trigger the workflow on push from the main branch
-  push:
-    paths:
-      - microservices/Reservation
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+  #push:
+  #  paths:
+  #    - microservices/Reservation
+  #  branches: [ master ]
+  #pull_request:
+  #  branches: [ master ]
 jobs:
   build:
     runs-on: ubuntu-latest
