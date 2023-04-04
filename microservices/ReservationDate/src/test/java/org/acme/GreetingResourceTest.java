@@ -18,9 +18,9 @@ import static org.hamcrest.CoreMatchers.is;
 @QuarkusTest
 public class GreetingResourceTest {
 
-    @TestHTTPEndpoint(GreetingResource.class)
-    @TestHTTPResource
-    URL url;
+    //@TestHTTPEndpoint(GreetingResource.class)
+    //@TestHTTPResource
+    //URL url;
     @Test
     public void test() throws IOException {
         given()
