@@ -13,6 +13,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18.x
+      - name: Install NPM packages
+        run: |
+          cd ./microservices/Register
+          npm install
       - run: |
           cd ./microservices/Register
           npm run test
