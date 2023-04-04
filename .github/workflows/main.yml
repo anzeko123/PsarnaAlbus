@@ -37,11 +37,6 @@ jobs:
         java-version: 17
 
     - name: Build with Maven
-      run: |
-          cd ./microservices/ReservationDate
-          mvn --batch-mode -DskipTests package
-        #cd ./microservices/ReservationDate
-      #run: mvn -f microservices/ReservationDate --batch-mode -DskipTests package
-        #run: mvn --batch-mode -DskipTests package
+      run: mvn -f microservices/ReservationDate --batch-mode -DskipTests package
     - name: Run tests
       run: mvn -f microservices/ReservationDate --batch-mode test
