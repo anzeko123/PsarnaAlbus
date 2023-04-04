@@ -18,19 +18,19 @@ import static org.hamcrest.CoreMatchers.is;
 @QuarkusTest
 public class GreetingResourceTest {
 
-    //@TestHTTPEndpoint(GreetingResource.class)
-    //@TestHTTPResource
-    //URL url;
+    @TestHTTPEndpoint(GreetingResource.class)
+    @TestHTTPResource
+    URL url;
     @Test
-    public void test() { //throws IOException {
+    public void test() throws IOException {
         given()
                 .when().get("/reservationDate/all")
                 .then()
                 .statusCode(200);
     }
 
-    //@Test
-    //public void testPost() throws IOException {
+    @Test
+    public void testPost() throws IOException {
 /*
         given().contentType(ContentType.JSON)
                 .when().post("/reservationDate/add")
@@ -41,7 +41,7 @@ public class GreetingResourceTest {
                 .body("reservarId", hasItems("0"))
                 .body("userId", hasItems());
 */
-    //}
+    }
                 //.body(is("hello"));
 /*
         given()
