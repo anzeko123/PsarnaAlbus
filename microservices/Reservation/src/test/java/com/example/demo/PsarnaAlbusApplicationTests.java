@@ -40,7 +40,7 @@ import static org.springframework.test.web.client.match.MockRestRequestMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 //@WebMvcTest(PesController.class)
-@SpringBootTest
+@SpringBootTest(classes = PsarnaAlbusApplicationTests.class)
 class PsarnaAlbusApplicationTests {
 /*
 	@Autowired
@@ -63,8 +63,8 @@ class PsarnaAlbusApplicationTests {
 */
 	@Test
 	void contextLoads() throws Exception {
-		//int result = 1+1;
-		//assertEquals(2, result);
+		int result = 1+1;
+		assertEquals(2, result);
 /*
 		when(pesService.getPes()).thenReturn(List.of(new Pes("test", "1999-01-01", "test", "1234")));
 		this.mvc.perform(MockMvcRequestBuilders.get("/reservation/all"))
