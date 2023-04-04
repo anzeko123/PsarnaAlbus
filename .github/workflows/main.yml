@@ -15,15 +15,15 @@ jobs:
           distribution: 'temurin'
       - name: Build with Maven
         run: mvn -f microservices/Reservation --batch-mode --update-snapshots package
-      - name: Upload Spring Boot test results
+      - name: Test SpringBoot Upload
         uses: actions/upload-artifact@v3
         with:
-          name: TestResultsSpringBoot
+          name: SpringBootTests
           path: ./microservices/Reservation/target/surefire-reports/*.txt
-      - name: Download Spring Boot test results
+      - name: Test SpringBoot Upload
         uses: actions/download-artifact@v3
         with:
-          name: TestResultsSpringBoot
+          name: SpringBootTests
           
           
   test-quarkus:
@@ -40,3 +40,13 @@ jobs:
       run: mvn -f microservices/ReservationDate --batch-mode -DskipTests package
     - name: Run tests
       run: mvn -f microservices/ReservationDate --batch-mode test
+      
+    - name: Test Quarkus Upload
+      uses: actions/upload-artifact@v3
+      with:
+        name: QuarkusTests
+        path: ./microservices/ReservationDate/target/surefire-reports/*.txt
+    - name: Test Quarkus Download
+      uses: actions/download-artifact@v3
+      with:
+        name: QuarkusTests
