@@ -15,7 +15,17 @@ jobs:
           distribution: 'temurin'
       - name: Build with Maven
         run: mvn -f microservices/Reservation --batch-mode --update-snapshots package
-        
+      - name: Upload Spring Boot test results
+        uses: actions/upload-artifact@v3
+        with:
+          name: TestResultsSpringBoot
+          path: ./microservices/Reservation/target/surefire-reports/*.txt
+      - name: Download Spring Boot test results
+        uses: actions/download-artifact@v3
+        with:
+          name: TestResultsSpringBoot
+          
+          
   test-quarkus:
     runs-on: ubuntu-latest
 
