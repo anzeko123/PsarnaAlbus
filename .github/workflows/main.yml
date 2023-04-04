@@ -1,15 +1,7 @@
-#Workflow name
 name: CI/CD Pipeline
+
 on: [push]
-  #Manually trigger workflow runs
-  #workflow_dispatch:
-  #Trigger the workflow on push from the main branch
-  #push:
-  #  paths:
-  #    - microservices/Reservation
-  #  branches: [ master ]
-  #pull_request:
-  #  branches: [ master ]
+
 jobs:
   test-springboot:
     runs-on: ubuntu-latest
@@ -35,6 +27,11 @@ jobs:
         java-version: 17
 
     - name: Build with Maven
-      run: mvn -f microservices/ReservationDate package --batch-mode -DskipTests package
+      run: |
+          cd ./microservices/ReservationDate
+          mvn --batch-mode -DskipTests package
+        #cd ./microservices/ReservationDate
+      #run: mvn -f microservices/ReservationDate --batch-mode -DskipTests package
+        #run: mvn --batch-mode -DskipTests package
     - name: Run tests
       run: mvn -f microservices/ReservationDate --batch-mode test
