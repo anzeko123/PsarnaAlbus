@@ -22,7 +22,7 @@ public class GreetingResourceTest {
     //@TestHTTPResource
     //URL url;
     @Test
-    public void test() throws IOException {
+    public void test() { //throws IOException {
         given()
                 .when().get("/reservationDate/all")
                 .then()
