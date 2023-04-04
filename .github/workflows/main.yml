@@ -31,10 +31,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Set up JDK 17
+    - name: Set up JDK
       uses: actions/setup-java@v1
       with:
-        java-version: 17
+        java-version: '17'
 
     - name: Build with Maven
       run: mvn -f microservices/ReservationDate --batch-mode -DskipTests package
