@@ -23,14 +23,14 @@ public class GreetingResourceTest {
     URL url;
     @Test
     public void test() throws IOException {
-        //given()
-        //        .when().get("/reservationDate/all")
-        //        .then()
-        //        .statusCode(200);
+        given()
+                .when().get("/reservationDate/all")
+                .then()
+                .statusCode(200);
     }
 
-    @Test
-    public void testPost() throws IOException {
+    //@Test
+    //public void testPost() throws IOException {
 /*
         given().contentType(ContentType.JSON)
                 .when().post("/reservationDate/add")
@@ -41,7 +41,7 @@ public class GreetingResourceTest {
                 .body("reservarId", hasItems("0"))
                 .body("userId", hasItems());
 */
-    }
+    //}
                 //.body(is("hello"));
 /*
         given()
