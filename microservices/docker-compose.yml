@@ -1,0 +1,64 @@
+version: '3.9'
+
+services: 
+  #MongoDB service
+  mongodb:
+    container_name: node_mongo_db
+    image: mongo:5.0.14-focal
+    restart: always
+    ports:
+      - 2717:27017
+    volumes: 
+      - mongodb:/data/db
+
+  #Node API service
+  register:
+    build: ./Register
+    ports:
+      - 4000:4000
+    volumes: 
+      - .:/Register
+    environment: 
+      PORT: 4000
+      MONGODB_URI: mongodb://mongodb:27017
+      DB_NAME: test
+    depends_on: 
+      - mongodb
+
+  #MySQL service
+  mysql-springboot:
+    image: mysql:5.7
+    restart: unless-stopped
+    env_file: ./.env
+    environment:
+      - MYSQL_ROOT_PASSWORD=$PASSWORD
+      - MYSQL_DATABASE=$DATABASE_SPRINGBOOT
+    ports:
+      - 3307:3307
+    volumes:
+      - ./init:/docker-entrypoint-initdb.d
+      #- db-springboot:/var/lib/mysql
+
+  #SpingBoot API service
+  reservation:
+    depends_on:
+      - mysql-springboot
+    build: ./Reservation .
+    restart: on-failure
+    env_file: ./.env
+    ports:
+      - 9000:9000
+    environment:
+      SPRING_APPLICATION_JSON: '{
+        "spring.datasource.url"  : "jdbc:mysql://mysql-springboot:3306/p-albus-rezervacija",
+        "spring.datasource.username" : "root",
+        "spring.datasource.password" : "localhost",
+        "spring.datasource.driver-class-name": "com.mysql.cj.jdbc.Driver",
+        "spring.jpa.database-platform": "org.hibernate.dialect.MySQL5Dialect",
+        "spring.jpa.hibernate.ddl-auto" : "update"
+      }'
+
+volumes: 
+  mongodb: {}
+  #db-springboot: {}
+  #db-quarkus: {}

@@ -4,6 +4,8 @@ const { loginUser, deleteUser, logoutUser } = require("../dao/user-dao");
 //const {timestamp, combine, json, printf} = format
 const winston = require('winston');
 const jwt = require("jsonwebtoken");
+const querystring = require('querystring');
+const fetch = require('node-fetch');
 
 
 const logConfiguration = {
@@ -35,7 +37,7 @@ const login = async (req, res) => {
               );
               // save user token
               searchUser.token = token;
-            res.status(200).json({'user': searchUser, 'token': token});
+            res.status(200).json({'success': 'logged in', 'user': searchUser, 'token': token});
                 logger.info(`200 || Uspešna prijava`);
 
         } catch (e) {
@@ -68,7 +70,7 @@ const logout = async (req, res) => {
     try {
         const loggedOut = await logoutUser(req.params.id)
         res.json({"success": "logged out"})
-        logger.info(`200 || logged Out`);
+        logger.info(`200 || Uspešna odjava`);
     } catch (e) {
         res.status(500)
         console.log(e)
@@ -76,5 +78,19 @@ const logout = async (req, res) => {
         logger.info(`500 || Prišlo je do napake med odjavo`);
     }
 }
+const reserveDog = async (req, res) => {
+        const dogId =  req.params.id
+        const ownerId =  req.params.ownerId
+        console.log(dogId + " test " + ownerId)
+    
+      const response = await fetch(`http://localhost:9000/reservation/updateOwner?id=${dogId}&ownerId=${ownerId}`, {
+        method: 'PUT', 
+        headers: {'Content-Type': 'text/plain'}
+      });
+    
+      const responseData = await response.json();
+      res.send(responseData)
 
-module.exports = {login, deleteLoggedUser, logout};
+}
+
+module.exports = {login, deleteLoggedUser, logout, reserveDog};
