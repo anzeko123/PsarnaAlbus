@@ -42,25 +42,25 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 //@WebMvcTest(PesController.class)
 @SpringBootTest(classes = PsarnaAlbusApplicationTests.class)
 class PsarnaAlbusApplicationTests {
-/*
-	@Autowired
-	private MockMvc mvc;
+	/*
+        @Autowired
+        private MockMvc mvc;
 
-	@Autowired
-	private PesRepository pesRepository;
+        @Autowired
+        private PesRepository pesRepository;
 
-	@MockBean
-	private PesService pesService;
+        @MockBean
+        private PesService pesService;
 
-	@Autowired
-	private PesController pesController;
+        @Autowired
+        private PesController pesController;
 
-	@Before
-	public void setUp() {
-		MockitoAnnotations.openMocks(this);
-		this.mvc = MockMvcBuilders.standaloneSetup(pesController).build();
-	}
-*/
+        @Before
+        public void setUp() {
+            MockitoAnnotations.openMocks(this);
+            this.mvc = MockMvcBuilders.standaloneSetup(pesController).build();
+        }
+    */
 	@Test
 	void contextLoads() throws Exception {
 		int result = 1+1;
@@ -86,24 +86,24 @@ class PsarnaAlbusApplicationTests {
 		verify(pesService).addNewPes(any(Pes.class));
 	}
 */
-		//RequestBuilder request = MockMvcRequestBuilders.get("/reservation/all");
-		//MvcResult result = mvc.perform(request).andReturn();
+	//RequestBuilder request = MockMvcRequestBuilders.get("/reservation/all");
+	//MvcResult result = mvc.perform(request).andReturn();
 
-		//mvc.perform(MockMvcRequestBuilders
-		//		.get("/reservation/all")
-		//		.contentType(MediaType.APPLICATION_JSON))
-		//		.andExpect(status().isOk());
+	//mvc.perform(MockMvcRequestBuilders
+	//		.get("/reservation/all")
+	//		.contentType(MediaType.APPLICATION_JSON))
+	//		.andExpect(status().isOk());
 
 
-		//assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/reservation/all",
-		//String.class)).contains("Hello, World");
+	//assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/reservation/all",
+	//String.class)).contains("Hello, World");
 
-		//RequestBuilder request = MockMvcRequestBuilders.get("/reservation/all");
-		//MvcResult result = mvc.perform(request).andReturn();
-		//assertEquals("test", result);
-		//final Long dogId = 2L;
-		//Pes mockedDog = new Pes("Todi", "1999-01-15", "Labrador Retriever", "1234");
-		//Mockito.doReturn(mockedDog).when(repository).findById(dogId); // note that this mock is not necessary, but it does make the test a unit test
+	//RequestBuilder request = MockMvcRequestBuilders.get("/reservation/all");
+	//MvcResult result = mvc.perform(request).andReturn();
+	//assertEquals("test", result);
+	//final Long dogId = 2L;
+	//Pes mockedDog = new Pes("Todi", "1999-01-15", "Labrador Retriever", "1234");
+	//Mockito.doReturn(mockedDog).when(repository).findById(dogId); // note that this mock is not necessary, but it does make the test a unit test
         /*
         this.mvc.perform(get("/"))
                 .andExpect(status().isOk())
@@ -127,6 +127,6 @@ class PsarnaAlbusApplicationTests {
 
         assertEquals("saved", expectedResponse, responseString);
 */
-		//Pes pes = new Pes("test", "test", "test", "1234");
+	//Pes pes = new Pes("test", "test", "test", "1234");
 
 }
