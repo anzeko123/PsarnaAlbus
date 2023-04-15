@@ -58,6 +58,24 @@ services:
         "spring.jpa.hibernate.ddl-auto" : "update"
       }'
 
+  #Quarkus API service
+  reservation-date:
+    depends_on:
+      - mysql-springboot
+    build: ./ReservationDate
+      #context: .
+      #dockerfile: ./ReservationDate/src/main/docker/Dockerfile.native
+    restart: on-failure
+    env_file: ./.env
+    ports:
+      - 8000:8000
+    environment:
+      - quarkus.datasource.jdbc.url=jdbc:mysql://mysql-springboot:3306/p-albus-date-reservation
+      - quarkus.datasource.jdbc.driver=com.mysql.cj.jdbc.Driver
+      - quarkus.datasource.username=root
+      - quarkus.datasource.password=localhost
+      - quarkus.hibernate-orm.database.generation=update
+
 volumes: 
   mongodb: {}
   #db-springboot: {}
