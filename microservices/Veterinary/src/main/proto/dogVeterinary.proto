@@ -1,0 +1,21 @@
+syntax="proto3";
+option java_package = "org.example";
+//package org.example.grpc;
+option java_multiple_files=true;
+
+
+service DogVeterinaryService {
+  rpc GetFeature(DogVeterinaryRequest) returns (DogVeterinaryResponse) {}
+
+}
+
+message DogVeterinaryRequest {
+  string dogName = 1;
+  string dogId = 2;
+  string ownerId = 3;
+  string dateOfCheck = 4;
+}
+
+message DogVeterinaryResponse {
+  string message = 1;
+}

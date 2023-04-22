@@ -1,17 +1,9 @@
-#Workflow name
 name: CI/CD Pipeline
-on:
-  #Manually trigger workflow runs
-  workflow_dispatch:
-  #Trigger the workflow on push from the main branch
-  push:
-    paths:
-      - microservices/Reservation
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
-jobs:
-  build:
+
+on: [push]
+
+jobs:    
+  test-springboot:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,3 +15,38 @@ jobs:
           distribution: 'temurin'
       - name: Build with Maven
         run: mvn -f microservices/Reservation --batch-mode --update-snapshots package
+      - name: Test SpringBoot Upload
+        uses: actions/upload-artifact@v3
+        with:
+          name: SpringBootTests
+          path: ./microservices/Reservation/target/surefire-reports/*.txt
+      - name: Test SpringBoot Upload
+        uses: actions/download-artifact@v3
+        with:
+          name: SpringBootTests
+          
+          
+  test-quarkus:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up JDK 17
+      uses: actions/setup-java@v1
+      with:
+        java-version: '17'
+
+    - name: Build with Maven
+      run: mvn -f microservices/ReservationDate --batch-mode -DskipTests package
+    - name: Run tests
+      run: mvn -f microservices/ReservationDate --batch-mode test
+      
+    - name: Test Quarkus Upload
+      uses: actions/upload-artifact@v3
+      with:
+        name: QuarkusTests
+        path: ./microservices/ReservationDate/target/surefire-reports/*.txt
+    - name: Test Quarkus Download
+      uses: actions/download-artifact@v3
+      with:
+        name: QuarkusTests
