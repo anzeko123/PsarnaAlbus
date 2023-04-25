@@ -1,0 +1,25 @@
+syntax="proto3";
+
+package vetPackage;
+
+service VetService {
+  rpc createVetVisit(VetVisit) returns (VetVisit);
+  rpc returnVetVisit(empty) returns(VetResponse);
+
+}
+
+message empty {
+
+}
+
+message VetVisit {
+  int32 id = 1;
+  string dogName = 2;
+  string dogId = 3;
+  string ownerId = 4;
+  string dateOfCheck = 5;
+}
+
+message VetResponse {
+  repeated VetVisit visits = 1;
+}

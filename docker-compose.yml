@@ -76,6 +76,21 @@ services:
       - quarkus.datasource.password=localhost
       - quarkus.hibernate-orm.database.generation=update
 
+  #grpc-server veterinary Visit
+  grpc-server:
+    container_name: grpc-server
+    build: ./microservices/VeterinaryNode/server
+
+  #grpc-client veterinary Visit v Node.js
+  grpc-client:
+    build: ./microservices/VeterinaryNode/client
+    ports:
+      - 7000:7000
+    volumes: 
+      - .:/grpc-client
+    environment: 
+      PORT: 7000
+
   #Backend for frontend for desktop
   backend_for_desktop:
     build: ./backend_for_frontend
@@ -95,7 +110,6 @@ services:
       - .:/backend_for_frontend
     environment: 
       PORT: 5001
-
 
 
 volumes: 
