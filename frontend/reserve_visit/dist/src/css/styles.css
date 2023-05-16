@@ -1,0 +1,185 @@
+.navbar{
+
+    font-size:30px;
+
+}
+
+.title{
+
+    font-size: 30px !important;
+
+}
+
+.gradient-custom-3 {
+
+    /* fallback for old browsers */
+
+    background: #84fab0;
+
+
+
+    /* Chrome 10-25, Safari 5.1-6 */
+
+    background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5));
+
+
+
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    background: linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5))
+
+}
+
+.gradient-custom-4 {
+
+    /* fallback for old browsers */
+
+    background: #84fab0;
+
+
+
+    /* Chrome 10-25, Safari 5.1-6 */
+
+    background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1));
+
+
+
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    background: linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1))
+
+}
+
+.forms {
+
+    background-image: url("../img/forms.jpg");
+
+    background-color: #cccccc;
+
+   }
+
+.card{
+
+    border-radius: 15px;
+
+    margin-top: 100px;
+
+    display:inline-block;
+
+}
+
+.adopt-card{
+
+    width: 18rem
+
+}
+
+.card-link{
+
+    color:blue;
+
+    text-decoration: none;
+
+    text-align: center;
+
+}
+
+.adopt-button {
+
+    background-color: #4CAF50; /* Green */
+
+    border: none;
+
+    color: white;
+
+    padding: 8px 16px;
+
+    text-align: center;
+
+    text-decoration: none;
+
+    display: inline-block;
+
+    font-size: 16px;
+
+    margin: 4px 2px;
+
+    transition-duration: 0.4s;
+
+    cursor: pointer;
+
+    border-radius: 8px;
+
+}
+
+  
+
+.adopt-button {
+
+    background-color: white; 
+
+    color: black; 
+
+    border: 2px solid #4CAF50;
+
+}
+
+
+
+.adopt-button:hover {
+
+    background-color: #4CAF50;
+
+    color: white;
+
+}
+
+.adopt-button-taken {
+
+    background-color: red; /* Green */
+
+    border: none;
+
+    color: white;
+
+    padding: 8px 16px;
+
+    text-align: center;
+
+    text-decoration: none;
+
+    display: inline-block;
+
+    font-size: 16px;
+
+    margin: 4px 2px;
+
+    transition-duration: 0.4s;
+
+    cursor: pointer;
+
+    border-radius: 8px;
+
+}
+
+  
+
+.adopt-button-taken {
+
+    background-color: white; 
+
+    color: black; 
+
+    border: 2px solid red;
+
+}
+
+
+
+.adopt-button-taken:hover {
+
+    background-color: red;
+
+    color: white;
+
+}
